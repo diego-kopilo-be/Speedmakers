@@ -1,0 +1,35 @@
+<div class="hero-image" data-hero-photos aria-hidden="true">
+  <img class="is-visible" src="/images/wintersport.webp" alt="" width="2000" height="1330" fetchpriority="high" />
+  <img class="lift-photo" src="/images/skilift.webp" alt="" width="1240" height="1550" loading="lazy" />
+  <img class="snowboard-photo" src="/images/snowboarder.webp" alt="" width="1240" height="1860" loading="lazy" />
+</div>
+
+<script>
+  const photos = Array.from(document.querySelectorAll<HTMLImageElement>('[data-hero-photos] img'));
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0;
+  let timer: number | undefined;
+
+  function rotate() {
+    if (document.hidden) return;
+
+    for (let offset = 1; offset < photos.length; offset++) {
+      const next = (current + offset) % photos.length;
+      const photo = photos[next];
+      if (!photo.complete || !photo.naturalWidth) continue;
+
+      photos[current].classList.remove('is-visible');
+      photo.classList.add('is-visible');
+      current = next;
+      return;
+    }
+  }
+
+  function updateRotation() {
+    window.clearInterval(timer);
+    if (!motion.matches) timer = window.setInterval(rotate, 30_000);
+  }
+
+  updateRotation();
+  motion.addEventListener('change', updateRotation);
+</script>

@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import WhatsAppLink from '../components/WhatsAppLink.astro';
+import HeroPhotos from '../components/HeroPhotos.astro';
 import { rates, workshop, topFit } from '../content/business.js';
 ---
 
@@ -16,9 +17,7 @@ import { rates, workshop, topFit } from '../content/business.js';
           <a class="text-link" href="#tarieven">Bekijk de tarieven</a>
         </div>
       </div>
-      <div class="hero-image" aria-hidden="true">
-        <img src="/images/wintersport.webp" alt="" width="2000" height="1200" fetchpriority="high" />
-      </div>
+      <HeroPhotos />
     </div>
   </section>
 
