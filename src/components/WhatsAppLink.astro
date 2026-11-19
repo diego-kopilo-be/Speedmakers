@@ -1,0 +1,33 @@
+---
+const number = '32491629639';
+const message = 'Hallo Speedmakers, ik heb een vraag over ski- of snowboardonderhoud.';
+const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+---
+
+<a class="whatsapp-link" href={url}>Stuur ons een WhatsApp-bericht</a>
+
+<style>
+  .whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    background: #126c42;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .whatsapp-link:hover {
+    background: #0d5735;
+  }
+
+  .whatsapp-link:focus-visible {
+    outline: 2px solid #126c42;
+    outline-offset: 3px;
+  }
+</style>
