@@ -1,0 +1,44 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import WhatsAppLink from '../components/WhatsAppLink.astro';
+import { rates, workshop, topFit } from '../content/business.js';
+---
+
+<SiteLayout title="Home" description="Handmatig ski- en snowboardonderhoud in Slijpe. Bekijk de tarieven en spreek af via WhatsApp.">
+  <section class="hero" aria-labelledby="home-title">
+    <div class="shell hero-grid">
+      <div class="hero-content">
+        <p class="location-label">Slijpe · Middelkerke</p>
+        <h1 id="home-title">Ski- en snowboard&shy;onderhoud</h1>
+        <p class="hero-intro">Met de hand geslepen en gewaxt in ons atelier in Slijpe.</p>
+        <div class="actions">
+          <WhatsAppLink />
+          <a class="text-link" href="#tarieven">Bekijk de tarieven</a>
+        </div>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <img src="/images/wintersport.webp" alt="" width="2000" height="1200" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="shell home-details" id="tarieven" aria-labelledby="rates-title">
+    <div class="rates-panel">
+      <h2 id="rates-title">Prijzen van onderhoud</h2>
+      <dl class="rates">
+        {rates.map(({ service, price }) => (
+          <div><dt>{service}</dt><dd>{price}</dd></div>
+        ))}
+      </dl>
+      <p class="muted">Onderhoud met racewax is op aanvraag mogelijk tegen een meerprijs.</p>
+    </div>
+    <div class="intro-panel">
+      <h2>Wie zijn we?</h2>
+      <p>Speedmakers is gespecialiseerd in het onderhoud van ski’s en snowboards. We onderhouden je materiaal volledig met de hand. Dat verbetert het glijvermogen en helpt je materiaal langer mee te gaan. We stemmen de wax af op de weersomstandigheden.</p>
+      <p>Met onze jarenlange ervaring in de wintersport onderhouden we je materiaal met de beste zorg.</p>
+      <h2>Waar breng je je materiaal?</h2>
+      <p>Op afspraak in ons atelier in de {workshop.street} in Slijpe, of tijdens de openingsuren bij {topFit.name}, {topFit.street}.</p>
+      <a class="text-link" href="/contactgegevens/">Naar contact en openingsuren</a>
+    </div>
+  </section>
+</SiteLayout>

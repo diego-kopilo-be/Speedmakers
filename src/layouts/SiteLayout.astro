@@ -1,0 +1,46 @@
+---
+import '../styles/site.css';
+import { workshop } from '../content/business.js';
+
+const { title, description } = Astro.props;
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'FAQ', href: '/faq/' },
+  { label: 'Contact', href: '/contactgegevens/' },
+];
+const pageTitle = title === 'Home' ? 'Speedmakers | Ski- en snowboardonderhoud in Slijpe' : `${title} | Speedmakers`;
+---
+
+<!doctype html>
+<html lang="nl-BE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#inhoud">Spring naar de inhoud</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="/" aria-label="Speedmakers, home">Speedmakers<span>.</span></a>
+        <nav aria-label="Hoofdnavigatie">
+          {links.map(({ label, href }) => (
+            <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main id="inhoud">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <a class="wordmark" href="/">Speedmakers<span>.</span></a>
+        <address>{workshop.street}<br />{workshop.city}</address>
+        <a href={`mailto:${workshop.email}`}>{workshop.email}</a>
+      </div>
+    </footer>
+  </body>
+</html>

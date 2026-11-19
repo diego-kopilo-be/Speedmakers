@@ -1,5 +1,7 @@
 ---
-const number = '32491629639';
+import { workshop } from '../content/business.js';
+
+const number = workshop.internationalPhone.slice(1);
 const message = 'Hallo Speedmakers, ik heb een vraag over ski- of snowboardonderhoud.';
 const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 ---

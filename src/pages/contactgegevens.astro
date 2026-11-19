@@ -1,0 +1,31 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import WhatsAppLink from '../components/WhatsAppLink.astro';
+import { workshop, topFit } from '../content/business.js';
+---
+
+<SiteLayout title="Contact" description="Contacteer Speedmakers via WhatsApp, telefoon of e-mail. Bekijk de afhaalpunten in Slijpe en Middelkerke.">
+  <div class="shell inner-page">
+    <h1>Contact</h1>
+    <div class="contact-grid">
+      <section class="contact-card" aria-labelledby="workshop-title">
+        <h2 id="workshop-title">Speedmakers</h2>
+        <address>{workshop.street}<br />{workshop.city}</address>
+        <p>Enkel op afspraak via WhatsApp of op <a href={`tel:${workshop.internationalPhone}`}>{workshop.phone}</a>.</p>
+        <WhatsAppLink />
+        <p>Stuurt u liever een e-mail? <a href={`mailto:${workshop.email}`}>{workshop.email}</a></p>
+      </section>
+      <section class="contact-card" aria-labelledby="topfit-title">
+        <h2 id="topfit-title">{topFit.name}</h2>
+        <address>{topFit.street}<br />{topFit.city}</address>
+        <h3>Openingsuren</h3>
+        <dl class="hours">
+          {topFit.hours.map(({ days, times }) => (
+            <div><dt>{days}</dt><dd>{times}</dd></div>
+          ))}
+        </dl>
+        <a class="text-link" href={topFit.website}>Naar de website van TopFit</a>
+      </section>
+    </div>
+  </div>
+</SiteLayout>

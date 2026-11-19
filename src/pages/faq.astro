@@ -1,0 +1,42 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { workshop, topFit } from '../content/business.js';
+---
+
+<SiteLayout title="FAQ" description="Veelgestelde vragen over het onderhoud, betalen en het binnenbrengen en ophalen van ski’s en snowboards.">
+  <div class="shell inner-page faq-page">
+    <h1>Veelgestelde vragen</h1>
+    <div class="faq-list">
+      <details>
+        <summary>Hoe lang duurt het onderhoud?</summary>
+        <p>Het onderhoud gebeurt niet onmiddellijk. Het eenvoudigste is om de ski’s of snowboard binnen te brengen. Na enkele dagen wordt u op de hoogte gebracht om het materiaal opnieuw op te halen.</p>
+      </details>
+      <details>
+        <summary>Doen jullie ook onderhoud aan Telemarkski’s, Tourski’s of Splitboards?</summary>
+        <p>Ja. Ook ander materiaal dan de standaard ski’s en snowboards kan door Speedmakers onderhouden worden.</p>
+      </details>
+      <details>
+        <summary>Leveren jullie het materiaal aan huis?</summary>
+        <p>Neen. Materiaal wordt niet aan huis bezorgd. Het materiaal dient afgeleverd en opgehaald te worden bij het servicecenter van Speedmakers in Slijpe of bij TopFit in Middelkerke.</p>
+      </details>
+      <details>
+        <summary>Kan er contactloos betaald worden?</summary>
+        <p>De betaling kan cash of contactloos (via payconiq of qr-code) uitgevoerd worden.<br />Bancontact of creditcard is helaas nog niet mogelijk.</p>
+      </details>
+      <details>
+        <summary>Moeten snowboardbindingen verwijderd worden?</summary>
+        <p>Bij Speedmakers is het niet nodig om de bindingen te verwijderen. Doordat het onderhoud niet machinaal gebeurt, maar volledig met de hand, kunnen de bindingen op het snowboard blijven staan.<br />Dit waarborgt de kwaliteit van het snowboard in het algemeen.</p>
+      </details>
+      <details>
+        <summary>Zijn er meerdere locaties waar het materiaal kan binnengebracht worden?</summary>
+        <p>Ja.<br />Naast het servicepunt in Slijpe (Middelkerke) waar eveneens het onderhoud gebeurt, kan het materiaal ook binnengebracht en nadien opgehaald worden bij Top Fit Middelkerke (Biezenstraat 22, Middelkerke).</p>
+        <p>Het materiaal dient wel opgehaald te worden op dezelfde locatie waar het werd binnengebracht.</p>
+      </details>
+      <details>
+        <summary>Wanneer kan er materiaal binnengebracht worden?</summary>
+        <p>Materiaal binnenbrengen in Slijpe is enkel mogelijk na afspraak (<a href={`tel:${workshop.internationalPhone}`}>{workshop.phone}</a>).</p>
+        <p>Materiaal binnenbrengen bij TopFit in Middelkerke, kan tijdens de openingsuren van TopFit (<a href={topFit.website}>{topFit.website}</a>).</p>
+      </details>
+    </div>
+  </div>
+</SiteLayout>
