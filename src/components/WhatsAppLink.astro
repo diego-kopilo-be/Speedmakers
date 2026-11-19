@@ -6,7 +6,13 @@ const message = 'Hallo Speedmakers, ik heb een vraag over ski- of snowboardonder
 const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 ---
 
-<a class="whatsapp-link" href={url}>Stuur ons een WhatsApp-bericht</a>
+<a
+  class="whatsapp-link"
+  href={url}
+  target="_blank"
+  rel="noopener"
+  aria-label="Stuur ons een WhatsApp-bericht (opent in een nieuw tabblad)"
+>Stuur ons een WhatsApp-bericht</a>
 
 <style>
   .whatsapp-link {
