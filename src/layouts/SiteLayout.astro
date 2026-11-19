@@ -18,13 +18,16 @@ const pageTitle = title === 'Home' ? 'Speedmakers | Ski- en snowboardonderhoud i
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/speedmakers-icon.png" />
     <title>{pageTitle}</title>
   </head>
   <body>
     <a class="skip-link" href="#inhoud">Spring naar de inhoud</a>
     <header class="site-header">
       <div class="shell header-inner">
-        <a class="wordmark" href="/" aria-label="Speedmakers, home">Speedmakers<span>.</span></a>
+        <a class="header-logo" href="/" aria-label="Speedmakers, home">
+          <img src="/images/speedmakers-wordmark.webp" alt="" width="560" height="98" />
+        </a>
         <nav aria-label="Hoofdnavigatie">
           {links.map(({ label, href }) => (
             <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>
@@ -37,7 +40,9 @@ const pageTitle = title === 'Home' ? 'Speedmakers | Ski- en snowboardonderhoud i
     </main>
     <footer class="site-footer">
       <div class="shell footer-inner">
-        <a class="wordmark" href="/">Speedmakers<span>.</span></a>
+        <a class="footer-logo" href="/" aria-label="Speedmakers, home">
+          <img src="/images/speedmakers-logo.webp" alt="" width="420" height="280" loading="lazy" />
+        </a>
         <address>{workshop.street}<br />{workshop.city}</address>
         <a href={`mailto:${workshop.email}`}>{workshop.email}</a>
       </div>
